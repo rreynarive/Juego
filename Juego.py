@@ -1,7 +1,7 @@
 import Brick
 import pygame
 from random import randint
-from Brick import brick
+from Brick import brick, irrompible
 
 #ventana
 pygame.init()
@@ -25,11 +25,17 @@ barra = pygame.image.load("barra.png")
 barrarect = barra.get_rect()
 barrarect.move_ip(240,490)
 
+#
+
 #Ladrillo
 lista_ladrillos = []
-for posx in range(12):
-    for posy in range(3):
+for posx in range(13):
+    for posy in range(4):
         lista_ladrillos.append(Brick.brick(50 * posx, 50 * posy, "brick.png"))
+
+#Musica
+pygame.mixer.music.load()
+pygame.mixer.music.play(3)
 
 # Letra "game Over"
 fuente = pygame.font.Font(None, 150)
