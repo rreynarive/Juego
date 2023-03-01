@@ -7,8 +7,12 @@ from pygame import mixer
 #musica
 mixer.init()
 cancion = mixer.music.load("cancion.mp3")
-cancion = mixer.music.set_volume(10)
+cancion = mixer.music.set_volume(7)
 cancion = mixer.music.play()
+
+#musica gameover
+gameover = mixer.Sound("game_over.mp3")
+gameover = mixer.music.play()
 
 #ventana
 pygame.init()
@@ -32,7 +36,6 @@ barra = pygame.image.load("barra.png")
 barrarect = barra.get_rect()
 barrarect.move_ip(240,490)
 
-#
 
 #Ladrillo
 lista_ladrillos = []
@@ -40,9 +43,7 @@ for posx in range(13):
     for posy in range(4):
         lista_ladrillos.append(Brick.brick(50 * posx, 50 * posy, "brick.png"))
 
-#Musica
-pygame.mixer.music.load()
-pygame.mixer.music.play(3)
+
 
 # Letra "game Over"
 fuente = pygame.font.Font(None, 150)
@@ -87,6 +88,7 @@ while jugando:
 
     #"GAME OVER"
     if ballrect.bottom > ventana.get_height():
+        cancion = mixer.music.stop()
         texto = fuente.render("Game Over", True, (0,0,0))
         texto_rect = texto.get_rect()
         texto_x = ventana.get_width() / 2 - texto_rect.width / 2
