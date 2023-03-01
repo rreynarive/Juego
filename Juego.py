@@ -28,13 +28,13 @@ fondorect.top = 2
 #Pelota
 ball = pygame.image.load("ball.png")
 ballrect = ball.get_rect()
-speed = [randint(3,6),randint(3,6)]
-ballrect.move_ip(250,450)
+speed = [randint(3, 6), randint(3, 6)]
+ballrect.move_ip(250, 450)
 
 #Barra
 barra = pygame.image.load("barra.png")
 barrarect = barra.get_rect()
-barrarect.move_ip(240,490)
+barrarect.move_ip(240, 490)
 
 
 #Ladrillo
@@ -63,9 +63,9 @@ while jugando:
     # Controles
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        barrarect = barrarect.move(-3,0)
+        barrarect = barrarect.move(-3, 0)
     if keys[pygame.K_RIGHT]:
-        barrarect = barrarect.move(3,0)
+        barrarect = barrarect.move(3, 0)
 
     # Colision pelota-barra
     if barrarect.colliderect(ballrect):
@@ -89,7 +89,7 @@ while jugando:
     #"GAME OVER"
     if ballrect.bottom > ventana.get_height():
         cancion = mixer.music.stop()
-        texto = fuente.render("Game Over", True, (0,0,0))
+        texto = fuente.render("Game Over", True, (0, 0, 0))
         texto_rect = texto.get_rect()
         texto_x = ventana.get_width() / 2 - texto_rect.width / 2
         texto_y = ventana.get_height() / 2 - texto_rect.height / 2
