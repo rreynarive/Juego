@@ -2,11 +2,18 @@ import Brick
 import pygame
 from random import randint
 from Brick import brick, irrompible
+from pygame import mixer
+
+#musica
+mixer.init()
+cancion = mixer.music.load("cancion.mp3")
+cancion = mixer.music.set_volume(10)
+cancion = mixer.music.play()
 
 #ventana
 pygame.init()
 ventana = pygame.display.set_mode((630,517))
-pygame.display.set_caption("Ejemplo 4")
+pygame.display.set_caption("JUEGO")
 
 #Fondo
 fondo = pygame.image.load("fondo.png")
